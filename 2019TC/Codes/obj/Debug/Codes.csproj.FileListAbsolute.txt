@@ -1,0 +1,6 @@
+C:\Users\Gibadulin Roman\source\repos\2019TC\Codes\bin\Debug\Codes.dll
+C:\Users\Gibadulin Roman\source\repos\2019TC\Codes\bin\Debug\Codes.pdb
+C:\Users\Gibadulin Roman\source\repos\2019TC\Codes\obj\Debug\Codes.csprojAssemblyReference.cache
+C:\Users\Gibadulin Roman\source\repos\2019TC\Codes\obj\Debug\Codes.csproj.CoreCompileInputs.cache
+C:\Users\Gibadulin Roman\source\repos\2019TC\Codes\obj\Debug\Codes.dll
+C:\Users\Gibadulin Roman\source\repos\2019TC\Codes\obj\Debug\Codes.pdb

@@ -1,0 +1,6 @@
+C:\Users\Gibadulin Roman\source\repos\2019TC\BinaryCodeToImage\bin\Debug\BinaryCodeToImage.dll
+C:\Users\Gibadulin Roman\source\repos\2019TC\BinaryCodeToImage\bin\Debug\BinaryCodeToImage.pdb
+C:\Users\Gibadulin Roman\source\repos\2019TC\BinaryCodeToImage\obj\Debug\BinaryCodeToImage.csprojAssemblyReference.cache
+C:\Users\Gibadulin Roman\source\repos\2019TC\BinaryCodeToImage\obj\Debug\BinaryCodeToImage.csproj.CoreCompileInputs.cache
+C:\Users\Gibadulin Roman\source\repos\2019TC\BinaryCodeToImage\obj\Debug\BinaryCodeToImage.dll
+C:\Users\Gibadulin Roman\source\repos\2019TC\BinaryCodeToImage\obj\Debug\BinaryCodeToImage.pdb
