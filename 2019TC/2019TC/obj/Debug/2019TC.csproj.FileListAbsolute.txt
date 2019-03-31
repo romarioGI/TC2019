@@ -18,3 +18,23 @@ C:\Users\Gibadulin Roman\source\repos\2019TC\2019TC\bin\Debug\Codes.dll
 C:\Users\Gibadulin Roman\source\repos\2019TC\2019TC\bin\Debug\BinaryCodeToImage.pdb
 C:\Users\Gibadulin Roman\source\repos\2019TC\2019TC\bin\Debug\Codes.pdb
 C:\Users\Gibadulin Roman\source\repos\2019TC\2019TC\obj\Debug\2019TC.csproj.CopyComplete
+D:\gitHub\TC2019.2\2019TC\2019TC\bin\Debug\2019TC.exe.config
+D:\gitHub\TC2019.2\2019TC\2019TC\bin\Debug\2019TC.exe
+D:\gitHub\TC2019.2\2019TC\2019TC\bin\Debug\2019TC.pdb
+D:\gitHub\TC2019.2\2019TC\2019TC\bin\Debug\BinaryCodeToImage.dll
+D:\gitHub\TC2019.2\2019TC\2019TC\bin\Debug\Codes.dll
+D:\gitHub\TC2019.2\2019TC\2019TC\bin\Debug\BinaryCodeToImage.pdb
+D:\gitHub\TC2019.2\2019TC\2019TC\bin\Debug\Codes.pdb
+D:\gitHub\TC2019.2\2019TC\2019TC\obj\Debug\2019TC.csprojAssemblyReference.cache
+D:\gitHub\TC2019.2\2019TC\2019TC\obj\Debug\MainWindow.g.cs
+D:\gitHub\TC2019.2\2019TC\2019TC\obj\Debug\App.g.cs
+D:\gitHub\TC2019.2\2019TC\2019TC\obj\Debug\2019TC_MarkupCompile.cache
+D:\gitHub\TC2019.2\2019TC\2019TC\obj\Debug\2019TC_MarkupCompile.lref
+D:\gitHub\TC2019.2\2019TC\2019TC\obj\Debug\MainWindow.baml
+D:\gitHub\TC2019.2\2019TC\2019TC\obj\Debug\2019TC.g.resources
+D:\gitHub\TC2019.2\2019TC\2019TC\obj\Debug\_2019TC.Properties.Resources.resources
+D:\gitHub\TC2019.2\2019TC\2019TC\obj\Debug\2019TC.csproj.GenerateResource.cache
+D:\gitHub\TC2019.2\2019TC\2019TC\obj\Debug\2019TC.csproj.CoreCompileInputs.cache
+D:\gitHub\TC2019.2\2019TC\2019TC\obj\Debug\2019TC.csproj.CopyComplete
+D:\gitHub\TC2019.2\2019TC\2019TC\obj\Debug\2019TC.exe
+D:\gitHub\TC2019.2\2019TC\2019TC\obj\Debug\2019TC.pdb

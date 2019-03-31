@@ -47,9 +47,9 @@ namespace Codes
             }
         }
 
-        public BigInteger IntegerPart()
+        public int FirstDigitAfterDot()
         {
-            return _numerator / _denominator;
+            return (int) (10 * _numerator / _denominator);
         }
 
         public static RationalNumber operator +(RationalNumber first, RationalNumber second)
@@ -98,8 +98,24 @@ namespace Codes
 
     public class ArithmeticCoding:ICode
     {
+        private bool RetrieveCode(ref RationalNumber a, ref RationalNumber b, ref BigInteger code, ref int digitCnt)
+        {
+            var digit = a.FirstDigitAfterDot();
+            if (digit != b.FirstDigitAfterDot())
+                return false;
+            a = 10 * a - digit;
+            b = 10 * b - digit;
+            code = 10 * code + digit;
+            digitCnt++;
+
+            return true;
+        }
+
         private BitArray TextCode(string text, Dictionary<char, int> frequencyDictionary)
         {
+            var res = new BigInteger(0);
+            var digitCnt = 0;
+
             var probabilities = new List<RationalNumber>();
             var mapSymbolsInNumber = new Dictionary<char, int>();
             probabilities.Add(0);
@@ -108,6 +124,7 @@ namespace Codes
                 mapSymbolsInNumber.Add(pair.Key, probabilities.Count);
                 probabilities.Add(new RationalNumber(pair.Value, text.Length) + probabilities[probabilities.Count - 1]);
             }
+
             RationalNumber a = 0;
             RationalNumber b = 1;
 
@@ -117,25 +134,13 @@ namespace Codes
                 var length = b - a;
                 b = probabilities[index] * length + a;
                 a = probabilities[index - 1] * length + a;
+                while (RetrieveCode(ref a, ref b, ref res, ref digitCnt))
+                {
+                }
             }
 
-            var res = new BigInteger(0);
-            var digitCnt = 0;
-            BigInteger aDigit, bDigit;
-            do
-            {
-                digitCnt++;
-                a *= 10;
-                b *= 10;
-                aDigit = a.IntegerPart();
-                bDigit = b.IntegerPart();
-                a -= aDigit;
-                b -= bDigit;
-                res *= 10;
-                res += aDigit;
-            } while (aDigit == bDigit);
-
-            res++;
+            res = res * 10 + a.FirstDigitAfterDot()+1;
+            digitCnt++;
 
             return BitArrayConverter.ConvertToBitArray(res, digitCnt);
         }
@@ -155,7 +160,6 @@ namespace Codes
             var frequencyDictionary = FrequencyDictionaryMaker.Get(text);
             return GetCode(text, frequencyDictionary, out codeLength);
         }
-
 
         private int LowerBound(List<RationalNumber> list, RationalNumber x)
         {

@@ -45,7 +45,13 @@ namespace Codes
         public static BitArray ConvertToBitArray(BigInteger x, int digitCnt)
         {
             var digitCntBits = ConvertToBitArray(digitCnt, 32);
-            var res = new BitArray(x.ToByteArray());
+            var res = new BitArray(0);
+            do
+            {
+                res.Length++;
+                res[res.Length - 1] = !x.IsEven;
+                x /= 2;
+            } while (x != 0);
 
             return ConvertToBitArray(new List<BitArray> {digitCntBits, res});
         }
