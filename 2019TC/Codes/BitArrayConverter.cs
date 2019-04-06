@@ -56,6 +56,11 @@ namespace Codes
             return ConvertToBitArray(new List<BitArray> {digitCntBits, res});
         }
 
+        public static BitArray ConvertToBitArray(char c)
+        {
+            return ConvertToBitArray(c, 16);
+        }
+
         public static int ConvertToInt(BitArray bitArray, ref int start, int length)
         {
             var res = 0;
@@ -67,6 +72,11 @@ namespace Codes
             }
 
             return res;
+        }
+
+        public static char ConvertToChar(BitArray bitArray, ref int start)
+        {
+            return (char) ConvertToInt(bitArray, ref start, 16);
         }
 
         public static BigInteger ConvertToBigInteger(BitArray bitArray, ref int start, int length, out int digitCnt)

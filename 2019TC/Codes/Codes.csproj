@@ -50,6 +50,8 @@
     <Compile Include="FrequencyDictionaryMaker.cs" />
     <Compile Include="HuffmanСoding.cs" />
     <Compile Include="ICode.cs" />
+    <Compile Include="Lz78Coding.cs" />
+    <Compile Include="Lz78WithHuffmanCoding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

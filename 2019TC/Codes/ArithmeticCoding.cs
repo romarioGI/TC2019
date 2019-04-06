@@ -5,99 +5,99 @@ using System.Numerics;
 using System.Text;
 
 namespace Codes
-{
-    internal class RationalNumber
-    {
-        private static BigInteger Gcd(BigInteger first, BigInteger second)
-        {
-            while (second !=0)
-            {
-                var item = first % second;
-                first = second;
-                second = item;
-            }
-
-            return first;
-        }
-
-        private readonly BigInteger _numerator;
-        private readonly BigInteger _denominator;
-
-        public RationalNumber(int x, int y):this((BigInteger)x,y)
-        {
-        }
-
-        private RationalNumber(BigInteger x, BigInteger y)
-        {
-            if (y == 0)
-                throw new ArgumentOutOfRangeException();
-            _numerator = x;
-            _denominator = y;
-            var d = Gcd(x, y);
-            if (d != 1)
-            {
-                _numerator /= d;
-                _denominator /= d;
-            }
-
-            if (_denominator < 0)
-            {
-                _denominator *= -1;
-                _numerator *= -1;
-            }
-        }
-
-        public int FirstDigitAfterDot()
-        {
-            return (int) (10 * _numerator / _denominator);
-        }
-
-        public static RationalNumber operator +(RationalNumber first, RationalNumber second)
-        {
-            return new RationalNumber(first._numerator * second._denominator + first._denominator * second._numerator,
-                first._denominator * second._denominator);
-        }
-
-        public static RationalNumber operator *(RationalNumber first, RationalNumber second)
-        {
-            return new RationalNumber(first._numerator*second._numerator, second._denominator*first._denominator);
-        }
-
-        public static RationalNumber operator /(RationalNumber first, RationalNumber second)
-        {
-            return first * new RationalNumber(second._denominator, second._numerator);
-        }
-
-        public static bool operator <(RationalNumber first, RationalNumber second)
-        {
-            var c = second - first;
-            return c._numerator > 0;
-        }
-
-        public static bool operator >(RationalNumber first, RationalNumber second)
-        {
-            var c = second - first;
-            return c._numerator < 0;
-        }
-
-        public static implicit operator RationalNumber(int x)
-        {
-            return new RationalNumber(x, 1);
-        }
-
-        public static implicit operator RationalNumber(BigInteger x)
-        {
-            return new RationalNumber(x, 1);
-        }
-
-        public static RationalNumber operator -(RationalNumber first, RationalNumber second)
-        {
-            return first + (-1) * second;
-        }
-    }
-
+{ 
     public class ArithmeticCoding:ICode
     {
+        private class RationalNumber
+        {
+            private static BigInteger Gcd(BigInteger first, BigInteger second)
+            {
+                while (second != 0)
+                {
+                    var item = first % second;
+                    first = second;
+                    second = item;
+                }
+
+                return first;
+            }
+
+            private readonly BigInteger _numerator;
+            private readonly BigInteger _denominator;
+
+            public RationalNumber(int x, int y) : this((BigInteger)x, y)
+            {
+            }
+
+            private RationalNumber(BigInteger x, BigInteger y)
+            {
+                if (y == 0)
+                    throw new ArgumentOutOfRangeException();
+                _numerator = x;
+                _denominator = y;
+                var d = Gcd(x, y);
+                if (d != 1)
+                {
+                    _numerator /= d;
+                    _denominator /= d;
+                }
+
+                if (_denominator < 0)
+                {
+                    _denominator *= -1;
+                    _numerator *= -1;
+                }
+            }
+
+            public int FirstDigitAfterDot()
+            {
+                return (int)(10 * _numerator / _denominator);
+            }
+
+            public static RationalNumber operator +(RationalNumber first, RationalNumber second)
+            {
+                return new RationalNumber(first._numerator * second._denominator + first._denominator * second._numerator,
+                    first._denominator * second._denominator);
+            }
+
+            public static RationalNumber operator *(RationalNumber first, RationalNumber second)
+            {
+                return new RationalNumber(first._numerator * second._numerator, second._denominator * first._denominator);
+            }
+
+            public static RationalNumber operator /(RationalNumber first, RationalNumber second)
+            {
+                return first * new RationalNumber(second._denominator, second._numerator);
+            }
+
+            public static bool operator <(RationalNumber first, RationalNumber second)
+            {
+                var c = second - first;
+                return c._numerator > 0;
+            }
+
+            public static bool operator >(RationalNumber first, RationalNumber second)
+            {
+                var c = second - first;
+                return c._numerator < 0;
+            }
+
+            public static implicit operator RationalNumber(int x)
+            {
+                return new RationalNumber(x, 1);
+            }
+
+            public static implicit operator RationalNumber(BigInteger x)
+            {
+                return new RationalNumber(x, 1);
+            }
+
+            public static RationalNumber operator -(RationalNumber first, RationalNumber second)
+            {
+                return first + (-1) * second;
+            }
+        }
+
         private bool RetrieveCode(ref RationalNumber a, ref RationalNumber b, ref BigInteger code, ref int digitCnt)
         {
             var digit = a.FirstDigitAfterDot();

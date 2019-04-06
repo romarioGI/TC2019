@@ -13,12 +13,12 @@ namespace _2019TC
     // ReSharper disable once RedundantExtendsListEntry
     public partial class MainWindow : Window
     {
-        private readonly ICode[] _coders = {new HuffmanСoding(), new ArithmeticCoding()};
+        private readonly ICode[] _coders = {new HuffmanСoding(), new ArithmeticCoding(), new Lz78Coding(), new Lz78WithHuffmanCoding(), };
 
         public MainWindow()
         {
             InitializeComponent();
-            CodeComboBox.ItemsSource = new[] {"Huffman", "Arithmetic coding" };
+            CodeComboBox.ItemsSource = new[] {"Huffman", "Arithmetic coding", "LZ78", "Lz78 + Huffman" };
             CodeComboBox.SelectedIndex = 0;
         }
 
@@ -44,7 +44,7 @@ namespace _2019TC
                 var code = BitmapCoder.GetCode(bmp);
                 text = _coders[CodeComboBox.SelectedIndex].Decode(code, out codeLength);
             }
-            catch (Exception)
+            catch (Exception c)
             {
                 MessageBox.Show("Декодирование прервано. Возможно, картинка закодирована другим алгоритмом");
                 return;

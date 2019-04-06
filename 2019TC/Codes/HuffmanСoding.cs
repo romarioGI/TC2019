@@ -5,87 +5,87 @@ using System.Text;
 
 namespace Codes
 {
-    internal class Node : IComparable<Node>
-    {
-        private readonly Node _left;
-        private readonly Node _right;
-        private readonly int _p;
-
-        public BitArray Code { get; private set; }
-        public char Symbol { get; }
-
-        public Node(Node left, Node right)
-        {
-            _left = left;
-            _right = right;
-            _p = _left._p + _right._p;
-            Symbol = _left.Symbol;
-        }
-
-        public Node(int frequency, char symbol)
-        {
-            _p = frequency;
-            Symbol = symbol;
-        }
-
-        private void BuildCodes(BitArray code)
-        {
-            if (_left == null && _right == null)
-            {
-                Code = new BitArray(code);
-                return;
-            }
-
-            if (_left != null)
-            {
-                code.Length++;
-                code[code.Length-1] = false;
-                _left.BuildCodes(code);
-                code.Length--;
-            }
-
-            if (_right != null)
-            {
-                code.Length++;
-                code[code.Length-1] = true;
-                _right.BuildCodes(code);
-                code.Length--;
-            }
-        }
-
-        public int CompareTo(Node other)
-        {
-            if (_p != other._p)
-                return _p.CompareTo(other._p);
-            return Symbol.CompareTo(other.Symbol);
-        }
-
-        private void GetCodesDictionary(Dictionary<char, BitArray> codesDictionary)
-        {
-            if (Code != null)
-            {
-                codesDictionary.Add(Symbol, Code);
-                return;
-            }
-
-            if (_left != null)
-                _left.GetCodesDictionary(codesDictionary);
-            if (_right != null)
-                _right.GetCodesDictionary(codesDictionary);
-        }
-
-        public Dictionary<char, BitArray> GetCodesDictionary()
-        {
-            var res = new Dictionary<char, BitArray>();
-            BuildCodes(new BitArray(0));
-            GetCodesDictionary(res);
-
-            return res;
-        }
-    }
-
     public class HuffmanСoding : ICode
     {
+        private class Node : IComparable<Node>
+        {
+            private readonly Node _left;
+            private readonly Node _right;
+            private readonly int _p;
+
+            public BitArray Code { get; private set; }
+            public char Symbol { get; }
+
+            public Node(Node left, Node right)
+            {
+                _left = left;
+                _right = right;
+                _p = _left._p + _right._p;
+                Symbol = _left.Symbol;
+            }
+
+            public Node(int frequency, char symbol)
+            {
+                _p = frequency;
+                Symbol = symbol;
+            }
+
+            private void BuildCodes(BitArray code)
+            {
+                if (_left == null && _right == null)
+                {
+                    Code = new BitArray(code);
+                    return;
+                }
+
+                if (_left != null)
+                {
+                    code.Length++;
+                    code[code.Length - 1] = false;
+                    _left.BuildCodes(code);
+                    code.Length--;
+                }
+
+                if (_right != null)
+                {
+                    code.Length++;
+                    code[code.Length - 1] = true;
+                    _right.BuildCodes(code);
+                    code.Length--;
+                }
+            }
+
+            public int CompareTo(Node other)
+            {
+                if (_p != other._p)
+                    return _p.CompareTo(other._p);
+                return Symbol.CompareTo(other.Symbol);
+            }
+
+            private void GetCodesDictionary(Dictionary<char, BitArray> codesDictionary)
+            {
+                if (Code != null)
+                {
+                    codesDictionary.Add(Symbol, Code);
+                    return;
+                }
+
+                if (_left != null)
+                    _left.GetCodesDictionary(codesDictionary);
+                if (_right != null)
+                    _right.GetCodesDictionary(codesDictionary);
+            }
+
+            public Dictionary<char, BitArray> GetCodesDictionary()
+            {
+                var res = new Dictionary<char, BitArray>();
+                BuildCodes(new BitArray(0));
+                GetCodesDictionary(res);
+
+                return res;
+            }
+        }
+
         private Node BuildTree(Dictionary<char, int> frequencies)
         {
             var nodes = new SortedSet<Node>();
